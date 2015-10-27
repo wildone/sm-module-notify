@@ -8,7 +8,7 @@
     <link rel="import" href="../sm-module-notify.html" />
   </head>
   <body>
-    <sm-module-notify id="notify"></sm-module-notify>
+    <sm-module-notify position="bottom" id="notify"></sm-module-notify>
     <script>
       window.addToast = function() {
         document.querySelector('#notify').insertAdjacentHTML('afterbegin', '<sm-notify-toast class="toast" type="error" title="Error">An error has occured on your page</sm-notify-toast>');
