@@ -34,7 +34,7 @@ class SmModuleNotify {
   notify(type, message, title, silent = false, persist = false) {
     let notification;
 
-    console.log(`${title}: ${message}`);
+    console.log(`${title || ''}: ${message}`);
 
     if (silent) {
       return;
