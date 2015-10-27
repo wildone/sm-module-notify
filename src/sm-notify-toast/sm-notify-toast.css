@@ -3,6 +3,8 @@
  */
 :root {
 
+  --toast-gutter: 12px;
+
   --info: var(--blue);
 
   --success: var(--green);
@@ -21,7 +23,7 @@
   width: 350px;
   border-radius: var(--border-radius);
   box-shadow: 0 1px 1px var(--light-black);
-  margin: 12px 0;
+  margin: var(--toast-gutter);
   cursor: pointer;
   overflow: hidden;
   visibility: hidden;
@@ -45,8 +47,6 @@
   display: block;
   font-size: 16px;
 }
-
-
 
 .content ::content {
   font-size: 14px;

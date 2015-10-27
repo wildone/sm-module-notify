@@ -8,30 +8,30 @@ class SmModuleNotify {
         value: () => []
       },
       position: {
-        type: String,
-        value: 'bottom',
+        type: Object,
+        value: 'bottom-right',
         reflectToAttribute: true
       }
     };
   }
 
-  info(title, message) {
-    this.notify('info', title, message);
+  info(message, title) {
+    this.notify('info', message, title);
   }
 
-  success(title, message) {
-    this.notify('success', title, message);
+  success(message, title) {
+    this.notify('success', message, title);
   }
 
-  warn(title, message) {
-    this.notify('warning', title, message);
+  warn(message, title) {
+    this.notify('warning', message, title);
   }
 
-  error(title, message) {
-    this.notify('error', title, message);
+  error(message, title) {
+    this.notify('error', message, title);
   }
 
-  notify(type, title, message, silent = false) {
+  notify(type, message, title, silent = false) {
     let notification;
 
     console.log(`${title}: ${message}`);
@@ -42,7 +42,7 @@ class SmModuleNotify {
 
     notification = this._makeToast(type, title, message);
 
-    if (this.position === 'bottom') {
+    if (this.position.split('-')[0] === 'bottom') {
       Polymer.dom(this.root).insertBefore(notification, null);
     } else {
       Polymer.dom(this.root).appendChild(notification);
@@ -56,9 +56,9 @@ class SmModuleNotify {
 
     notification.type = type;
     notification.title = title;
+    notification.persist = true;
     Polymer.dom(notification).innerHTML = message;
-
-    notification.fromPosition = this.position;
+    notification.fromPosition = this.position.split('-')[0];
 
     return notification;
   }
