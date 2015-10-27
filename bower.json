@@ -1,0 +1,37 @@
+{
+  "name": "sm-module-notify",
+  "description": "Notification center for Simpla",
+  "version": "0.0.0",
+  "authors": [
+    "Simpla <admin@simpla.io>"
+  ],
+  "license": "MIT",
+  "main": "sm-module-notify.html",
+  "keywords": [
+    "simpla",
+    "web component",
+    "polymer",
+    "notify"
+  ],
+  "ignore": [
+    "*",
+    "!src/**/*",
+    "!sm-module-notify.html",
+    "!LICENSE"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.7.14",
+    "polymer": "^1.1.4",
+    "simpla": "git@github.com:simplaio/simpla.git",
+    "iron-icon": "PolymerElements/iron-icon#~1.0.7"
+  },
+  "devDependencies": {
+    "web-component-tester": "^3.3.22",
+    "test-fixture": "PolymerElements/test-fixture#~1.0.0"
+  },
+  "componentImports": [
+    "polymer/polymer.html",
+    "simpla/simpla.html",
+    "iron-icon/iron-icon.html"
+  ]
+}

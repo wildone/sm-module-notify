@@ -1,0 +1,94 @@
+/**
+ * Config
+ */
+:root {
+
+  --info: var(--blue);
+
+  --success: var(--green);
+
+  --warning: var(--orange);
+
+  --error: var(--red);
+
+};
+
+:host {
+  @apply(--typography);
+  display: flex;
+  background: white;
+  color: var(--dark-gray);
+  width: 350px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 1px var(--light-black);
+  margin: 12px 0;
+  cursor: pointer;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+:host(:hover){
+  opacity: 0.75;
+}
+
+.content {
+  padding: 12px 20px;
+}
+
+.content__title,
+.content ::content {
+  line-height: 1.6;
+}
+
+.content__title {
+  font-weight: 900;
+  display: block;
+  font-size: 16px;
+}
+
+
+
+.content ::content {
+  font-size: 14px;
+}
+
+.flag {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  min-height: 40px;
+  color: white;
+}
+
+.flag__icon {
+  --iron-icon-height: 24px;
+  --iron-icon-width: 24px;
+}
+
+:host([title]) .flag {
+  width: 80px;
+  min-height: 60px;
+}
+
+:host([title]) .flag__icon {
+  --iron-icon-height: 32px;
+  --iron-icon-width: 32px;
+}
+
+:host([type="info"]) .flag {
+  background: var(--info);
+}
+
+:host([type="success"]) .flag {
+  background: var(--success);
+}
+
+:host([type="warning"]) .flag {
+  background: var(--warning);
+}
+
+:host([type="error"]) .flag {
+  background: var(--error);
+}
