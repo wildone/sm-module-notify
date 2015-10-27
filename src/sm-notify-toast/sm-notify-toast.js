@@ -19,7 +19,7 @@ class SmNotifyToast {
 
       duration: {
         type: Number,
-        value: 2000
+        value: 3000
       },
 
       persist: {
@@ -28,7 +28,8 @@ class SmNotifyToast {
       },
 
       title: {
-        type: String
+        type: String,
+        reflectToAttribute: true
       },
 
       fromPosition: {

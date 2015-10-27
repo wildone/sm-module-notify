@@ -1,9 +1,8 @@
-const easings = simpla.constants.easings,
-      opts = {
+const opts = {
         open: {
           easing: simpla.constants.easings.easeOutCubic,
           fill: 'both',
-          duration: 200,
+          duration: 100,
         },
         close: {
           easing: 'ease',
@@ -14,12 +13,14 @@ const easings = simpla.constants.easings,
 export default {
 
   _openToast(from){
+    let attribute = `margin-${from}`,
+        original = window.getComputedStyle(this)[attribute];
 
     this.style.visibility = 'visible'
 
     this.animate([
       { [`margin-${from}`]: -this.offsetHeight },
-      { [`margin-${from}`]: 0 }
+      { [`margin-${from}`]: original }
     ], opts.open);
 
   },

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sm-notify-toast</title>
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../sm-module-notify.html">
+  </head>
+  <body>
+    <test-fixture id="default">
+      <template>
+        <sm-notify-toast></sm-notify-toast>
+      </template>
+    </test-fixture>
+    <script>
+      describe('<sm-notify-toast>', function() {
+
+        var component,
+            componentFixtures;
+
+        componentFixtures = window.fixtures;
+
+        beforeEach(function() {
+          component = fixture('default');
+        });
+
+        it('is okay', function() {
+          expect(component).to.be.ok;
+        });
+
+        it('shouldn\'t throw errors when animating', function() {
+          expect(component._openToast.bind(component)).to.not.throw(Error);
+          expect(component._closeToast.bind(component)).to.not.throw(Error);
+        });
+
+        it('should after the duration call _closeToast', function(done) {
+          var duration = 50;
+          sinon.stub(component, '_closeToast');
+          component.duration = 50;
+          component.show();
+          setTimeout(function() {
+            expect(component._closeToast.called).to.not.be.true;
+          }, duration - 10);
+
+          setTimeout(function() {
+            expect(component._closeToast.called).to.be.true;
+            done();
+          }, duration + 10);
+        });
+
+        it('shouldnt call _closeToast if persists', function(done) {
+          var duration = 10;
+          sinon.stub(component, '_closeToast');
+          component.persist = true;
+
+          setTimeout(function() {
+            expect(component._closeToast.called).to.not.be.true;
+            done();
+          }, duration + 10);
+        });
+
+        it('should call destroy on close tap', function() {
+          var close = component.$$('.close');
+          sinon.spy(component, 'destroy');
+          close.click();
+
+          expect(component.destroy.called).to.be.true;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -22,7 +22,10 @@
       describe('<sm-module-notify>', function() {
 
         var component,
-            componentFixtures;
+            componentFixtures,
+            numberOfToasts = function() {
+              return Polymer.dom(component.root).querySelectorAll('sm-notify-toast').length;
+            };
 
         componentFixtures = window.fixtures;
 
@@ -32,6 +35,44 @@
 
         it('is okay', function() {
           expect(component).to.be.ok;
+        });
+
+        it('should create toasts on notify', function() {
+          var count = numberOfToasts();
+
+          component.notify('foo', 'bar', 'baz');
+          expect(numberOfToasts()).to.equal(count + 1);
+
+          component.notify('foo', 'bar', 'baz');
+          expect(numberOfToasts()).to.equal(count + 2);
+        });
+
+        it('should not create toasts on silent notify', function() {
+          var count = numberOfToasts();
+
+          component.notify('foo', 'bar', 'baz', true);
+          expect(numberOfToasts()).to.equal(count);
+        });
+
+        it('should console.log any notifications', function() {
+          sinon.spy(console, 'log');
+          component.notify('foo', 'bar', 'baz');
+          expect(console.log.called).to.be.true;
+
+          component.notify('foo', 'bar', 'baz', true);
+          expect(console.log.called).to.be.true;
+        });
+
+        it('should create the right positioned toasts', function() {
+          var element;
+
+          component.position = 'top-right';
+          element = component._makeToast('foo', 'bar', 'baz');
+          expect(element.fromPosition).to.equal('top');
+
+          component.position = 'bottom-left';
+          element = component._makeToast('foo', 'bar', 'baz');
+          expect(element.fromPosition).to.equal('bottom');
         });
       });
     </script>
