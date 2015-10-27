@@ -28,7 +28,8 @@ class SmNotifyToast {
       },
 
       title: {
-        type: String
+        type: String,
+        reflectToAttribute: true
       },
 
       fromPosition: {

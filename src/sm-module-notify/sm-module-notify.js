@@ -15,23 +15,23 @@ class SmModuleNotify {
     };
   }
 
-  info(message, title) {
-    this.notify('info', message, title);
+  info(message, title, persist) {
+    this.notify('info', message, title, persist);
   }
 
-  success(message, title) {
-    this.notify('success', message, title);
+  success(message, title, persist) {
+    this.notify('success', message, title, persist);
   }
 
-  warn(message, title) {
-    this.notify('warning', message, title);
+  warn(message, title, persist) {
+    this.notify('warning', message, title, persist);
   }
 
-  error(message, title) {
-    this.notify('error', message, title);
+  error(message, title, persist) {
+    this.notify('error', message, title, persist);
   }
 
-  notify(type, message, title, silent = false) {
+  notify(type, message, title, silent = false, persist = false) {
     let notification;
 
     console.log(`${title}: ${message}`);
@@ -56,7 +56,6 @@ class SmModuleNotify {
 
     notification.type = type;
     notification.title = title;
-    notification.persist = true;
     Polymer.dom(notification).innerHTML = message;
     notification.fromPosition = this.position.split('-')[0];
 

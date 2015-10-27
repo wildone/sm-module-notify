@@ -17,6 +17,7 @@
 
 :host {
   @apply(--typography);
+  position: relative;
   display: flex;
   background: white;
   color: var(--dark-gray);
@@ -24,13 +25,12 @@
   border-radius: var(--border-radius);
   box-shadow: 0 1px 1px var(--light-black);
   margin: var(--toast-gutter);
-  cursor: pointer;
   overflow: hidden;
   visibility: hidden;
 }
 
 :host(:hover){
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .content {
@@ -43,13 +43,26 @@
 }
 
 .content__title {
-  font-weight: 900;
+  font-weight: 600;
   display: block;
   font-size: 16px;
 }
 
 .content ::content {
   font-size: 14px;
+}
+
+.close {
+  --iron-icon-width: 14px;
+  --iron-icon-height: 14px;
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  cursor: pointer;
+  color: var(--gray);
+  border-radius: 999px;
+  border: 1px solid var(--gray);
+  padding: 1px;
 }
 
 .flag {

@@ -2,7 +2,7 @@ const opts = {
         open: {
           easing: simpla.constants.easings.easeOutCubic,
           fill: 'both',
-          duration: 200,
+          duration: 100,
         },
         close: {
           easing: 'ease',
