@@ -1,14 +1,14 @@
 const opts = {
-        open: {
-          easing: simpla.constants.easings.easeOutCubic,
-          fill: 'both',
-          duration: 100,
-        },
-        close: {
-          easing: 'ease',
-          duration: 150
-        }
-      };
+  open: {
+    easing: simpla.constants.easings.easeOutCubic,
+    fill: 'both',
+    duration: 100,
+  },
+  close: {
+    easing: 'ease',
+    duration: 150
+  }
+};
 
 export default {
 
@@ -19,10 +19,9 @@ export default {
     this.style.visibility = 'visible'
 
     this.animate([
-      { [`margin-${from}`]: -this.offsetHeight },
+      { [`margin-${from}`]: -this.offsetHeight + 'px' },
       { [`margin-${from}`]: original }
     ], opts.open);
-
   },
 
   _closeToast() {
