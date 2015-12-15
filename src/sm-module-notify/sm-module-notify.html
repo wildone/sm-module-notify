@@ -2,8 +2,33 @@
 
 <dom-module id="sm-module-notify">
   <template>
-    <style include="sm-css"></style>
-    <link rel="stylesheet" href="./sm-module-notify.css" />
+
+    <style include="sm-css">
+      :host {
+        position: fixed;
+      }
+
+      :host([position="bottom-right"]) {
+        bottom: 0;
+        right: 0;
+      }
+
+      :host([position="bottom-left"]) {
+        bottom: 0;
+        left: 0;
+      }
+
+      :host([position="top-right"]) {
+        bottom: 0;
+        right: 0;
+      }
+
+      :host([position="top-left"]) {
+        top: 0;
+        left: 0;
+      }
+    </style>
+
   </template>
   <script src="./sm-module-notify.js"></script>
 </dom-module>
