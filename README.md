@@ -16,4 +16,4 @@ MIT © [Simpla](admin@simpla.io)
 [bowerdeps-badge]: https://img.shields.io/gemnasium/simplaio/sm-module-notify.svg
 [bowerdeps-url]: https://gemnasium.com/bower/sm-module-notify
 [npmdevdeps-badge]: https://img.shields.io/david/dev/simplaio/sm-module-notify.svg?theme=shields.io
-[npmdevdeps-url]: https://david-dm.org/dev/simplaio/sm-module-notify#info=devDependencies
+[npmdevdeps-url]: https://david-dm.org/simplaio/sm-module-notify#info=devDependencies
