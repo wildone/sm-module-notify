@@ -16,7 +16,7 @@
   "ignore": [
     "*",
     "!src/**/*",
-    "!sm-module-notify.html",
+    "!*.html",
     "!LICENSE"
   ],
   "dependencies": {
