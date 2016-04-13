@@ -1,6 +1,6 @@
 const opts = {
   open: {
-    easing: simpla.constants.easings.easeOutCubic,
+    easing: simpla._constants.easings.easeOutCubic,
     fill: 'both',
     duration: 100,
   },
