@@ -74,6 +74,19 @@
           element = component._makeToast('foo', 'bar', 'baz');
           expect(element.fromPosition).to.equal('bottom');
         });
+
+        it('should have created a singleton', function() {
+          var modules = [].slice.call(document.querySelectorAll('sm-module-notify'));
+
+          expect(modules).to.have.lengthOf(2);
+        });
+
+        it('should add itself as simpla.notifications', function() {
+          var instance = simpla.notifications;
+
+          expect(instance).to.be.ok;
+          expect(instance.is).to.equal('sm-module-notify');
+        });
       });
     </script>
   </body>

@@ -64,3 +64,18 @@ class SmModuleNotify {
 }
 
 Polymer(SmModuleNotify);
+
+var singleton = document.createElement('sm-module-notify');
+
+window.simpla = window.simpla || {};
+window.simpla.notifications = singleton;
+
+if (document.body) {
+  document.body.appendChild(singleton);
+} else {
+  document.addEventListener('readystatechange', () => {
+    if (document.body) {
+      document.body.appendChild(singleton);
+    }
+  });
+}
