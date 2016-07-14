@@ -1,6 +1,6 @@
 {
   "name": "sm-module-notify",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Notification center for Simpla",
   "main": "sm-module-notify.html",
   "scripts": {
